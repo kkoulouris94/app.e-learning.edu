@@ -7,6 +7,8 @@ import AuthService from './services/auth-service';
 import Login from './components/Login';
 import CoursesList from './components/CoursesList';
 import Navbar from './components/Navbar';
+import Register from './components/Register';
+import MyLearning from './components/MyLearning';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -42,8 +44,16 @@ function App() {
             element={<CoursesList />}
           />
           <Route
+            path='/my-learning'
+            element={<MyLearning />}
+          />
+          <Route
             path='/login'
             element={<Login />}
+          />
+          <Route
+            path='/register'
+            element={<Register />}
           />
         </Routes>
       </div>
