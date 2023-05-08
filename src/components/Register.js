@@ -29,10 +29,20 @@ const Register = (props) => {
   const handleRegistration = (e) => {
     e.preventDefault();
 
-    AuthService.register(firstName, lastName, email, password).then(() => {
-      props.router.navigate('/courses');
-      window.location.reload();
-    });
+    AuthService.register(firstName, lastName, email, password).then(
+      () => {
+        props.router.navigate('/courses');
+        window.location.reload();
+      },
+      (error) => {
+        const code = error.response.status;
+        if (code === 500) {
+          alert('Server Error. Please try again');
+        } else if (code === 400) {
+          alert('Fill in your form and try again');
+        }
+      }
+    );
   };
 
   return (

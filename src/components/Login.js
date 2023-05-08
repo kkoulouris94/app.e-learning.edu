@@ -31,12 +31,12 @@ const Login = (props) => {
         window.location.reload();
       },
       (error) => {
-        const resMessage =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
+        const code = error.response.status;
+        if (code === 500) {
+          alert('Server Error. Please try again');
+        } else if (code === 400) {
+          alert('Check your credentials');
+        }
       }
     );
   };

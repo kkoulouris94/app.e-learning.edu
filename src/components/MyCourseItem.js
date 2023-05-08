@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import coursesService from '../services/courses-service';
+import { withRouter } from '../common/with-router';
 
-const MyCourseItem = ({ course, completeCourseHandler }) => {
+const MyCourseItem = ({ router, course, completeCourseHandler }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const completeCourse = (courseId) => {
@@ -10,6 +11,10 @@ const MyCourseItem = ({ course, completeCourseHandler }) => {
       .completeCourse(courseId)
       .then(() => {
         completeCourseHandler();
+      })
+      .catch((err) => {
+        alert('You need to sign in to view this page');
+        router.navigate('/login');
       })
       .finally(() => setIsLoading(false));
   };
@@ -36,4 +41,4 @@ const MyCourseItem = ({ course, completeCourseHandler }) => {
   );
 };
 
-export default MyCourseItem;
+export default withRouter(MyCourseItem);
