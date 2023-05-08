@@ -37,7 +37,13 @@ function App() {
           <Route
             exact
             path='/'
-            element={<Navigate to={<CoursesList />} />}
+            element={
+              !currentUser ? (
+                <Navigate to='/login' />
+              ) : (
+                <Navigate to='/courses' />
+              )
+            }
           />
           <Route
             path='/courses'
