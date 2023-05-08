@@ -9,6 +9,7 @@ import CoursesList from './components/CoursesList';
 import Navbar from './components/Navbar';
 import Register from './components/Register';
 import MyLearning from './components/MyLearning';
+import CourseDetails from './components/CourseDetails';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -48,6 +49,10 @@ function App() {
           <Route
             path='/courses'
             element={<CoursesList />}
+          />
+          <Route
+            path='/courses/:courseId'
+            element={<CourseDetails />}
           />
           <Route
             path='/my-learning'

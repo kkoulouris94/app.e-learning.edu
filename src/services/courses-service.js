@@ -8,6 +8,20 @@ class CoursesService {
     return axios.get(COURSES_URL, { headers: authHeader() });
   }
 
+  async fetchOneCourse(courseId) {
+    return axios.get(`${COURSES_URL}/${courseId}`, { headers: authHeader() });
+  }
+
+  async enrollToCourse(courseId) {
+    return axios.post(
+      `${COURSES_URL}/${courseId}/enroll`,
+      {},
+      {
+        headers: authHeader(),
+      }
+    );
+  }
+
   async completeCourse(courseId) {
     return axios.post(
       `${COURSES_URL}/${courseId}/complete`,
