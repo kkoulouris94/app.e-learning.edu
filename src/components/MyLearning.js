@@ -40,6 +40,7 @@ const MyLearning = (props) => {
               {myCourses &&
                 myCourses.map((course) => (
                   <MyCourseItem
+                    key={course.id}
                     completeCourseHandler={() => window.location.reload()}
                     course={course}
                   />

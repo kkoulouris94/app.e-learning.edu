@@ -20,7 +20,13 @@ const CoursesList = (props) => {
 
   return (
     <div className='container-fluid text-center flex-container'>
-      {courses && courses.map((course) => <CourseItem course={course} />)}
+      {courses &&
+        courses.map((course) => (
+          <CourseItem
+            key={course.id}
+            course={course}
+          />
+        ))}
     </div>
   );
 };
