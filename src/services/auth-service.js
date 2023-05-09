@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
-const AUTH_URL = 'http://localhost:9000/auth';
+const AUTH_URL = `http://${process.env.REACT_APP_SERVER_ADDR}:${process.env.REACT_APP_SERVER_PORT}/auth`;
 
 class AuthService {
   async register(firstName, lastName, email, password) {

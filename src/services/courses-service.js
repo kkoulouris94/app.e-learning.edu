@@ -1,7 +1,7 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
-const COURSES_URL = 'http://localhost:9000/courses';
+const COURSES_URL = `http://${process.env.REACT_APP_SERVER_ADDR}:${process.env.REACT_APP_SERVER_PORT}/courses`;
 
 class CoursesService {
   async fetchAllCourses() {
