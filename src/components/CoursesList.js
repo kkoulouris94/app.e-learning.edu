@@ -20,6 +20,7 @@ const CoursesList = (props) => {
 
   return (
     <div className='container-fluid text-center flex-container'>
+      <h1>Available Courses</h1>
       {courses &&
         courses.map((course) => (
           <CourseItem
