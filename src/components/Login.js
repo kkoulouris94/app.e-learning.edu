@@ -34,7 +34,7 @@ const Login = (props) => {
         const code = error.response.status;
         if (code === 500) {
           alert('Server Error. Please try again');
-        } else if (code === 400) {
+        } else if (code === 400 || code === 401) {
           alert('Check your credentials');
         }
       }
